@@ -1,0 +1,1 @@
+	  <add name="finalcontext" connectionString="Data Source=SQL5102.site4now.net;Initial Catalog=DB_A6DF97_ibrahimsaid;User Id=DB_A6DF97_ibrahimsaid_admin;Password=hima123456789" providerName="System.Data.SqlClient"/>

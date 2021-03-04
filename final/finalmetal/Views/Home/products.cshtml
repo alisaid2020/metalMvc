@@ -1,0 +1,151 @@
+﻿@using PagedList;
+@model IPagedList<finalmetal.Models.product>
+@{
+    ViewBag.Title = "products";
+
+}
+<br />
+<br />
+<br />
+<br />
+<style>
+    .card-body {
+        color: black;
+        background-color: aquamarine;
+    }
+
+    body {
+        background-color: #808080;
+    }
+
+    #imgcard {
+        height: 190px;
+    }
+
+    .card-body {
+        height: 150px;
+        background-color: aquamarine;
+    }
+
+
+    #products-container {
+        position: relative;
+        display: inline-block;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 15px;
+    }
+
+
+    #inpsearch {
+        padding-top: 17px;
+    }
+
+    #pagination {
+        font-size: larger;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+    }
+</style>
+
+<div class="container-fluid col-8" id="inpsearch">
+    <div class="input-group md-form form-sm form-2 pl-0">
+        <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" id="inputtext">
+        <div class="input-group-append">
+            <span class="input-group-text red lighten-3" id="basic-text1">
+                <i class="fas fa-search text-grey"
+                   aria-hidden="true"></i>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="container-fluid mx-auto">
+
+    <h2>products</h2>
+    @if (Session["type"] == "Admin" && Session["userid"] != null)
+    {
+        <a href="/Home/AddProduct" class="btn btn-success">AddProduct</a>
+        <br />
+
+        foreach (var item in Model)
+        {
+            <div id="products-container">
+                <div class="card" style="width: 18rem; position:relative; display:inline-block;" id="ddd">
+                    <img src="~/images/@item.Image1" class="card-img-top" alt="image info" id="imgcard">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Price جنيه</p>
+                        <a href="/Home/Details/@item.Id" class="btn btn-primary">Details</a>
+                        <a href="/Home/delet/@item.Id" class="btn btn-danger" onclick="return confirm('Are you sure?');">Delet</a>
+                        <a href="/Home/Edit/@item.Id" class="btn btn-info">Edit</a>
+
+                    </div>
+                </div>
+
+            </div>
+        }
+        <ul class="pagination" id="pagination">
+            @for (int i = 1; i <= Model.PageCount; i++)
+            {
+                <li class="@(i == Model.PageNumber ? "page-item active" : "page-item")">
+                    <a class="page-link" href="@Url.Action("products", new { page = i })">@i</a>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <div id="products-container">
+                <div class="card" style="width: 18rem; position:relative; display:inline-block;" id="ddd">
+                    <img src="~/images/@item.Image1" class="card-img-top" alt="image info" id="imgcard">
+                    <div class="card-body">
+                        <h5 id="asas">@item.Name</h5>
+                        <h6>@item.Price جنيه</h6>
+                        <a href="/Home/Details/@item.Id" class="btn btn-primary bg-primary">Details</a>
+                    </div>
+                </div>
+
+            </div>
+
+        }
+        <ul class="pagination" id="pagination">
+            @for (int i = 1; i <= Model.PageCount; i++)
+            {
+                <li class="@(i == Model.PageNumber ? "page-item active" : "page-item")">
+                    <a class="page-link" href="@Url.Action("products", new { page = i })">@i</a>
+                </li>
+
+            }
+        </ul>
+
+    }
+
+</div>
+<br />
+@section scribts
+
+    {
+
+    <script>
+
+        //$(".card").hide(100).show(2000);
+      //  $("#inpsearch").hide(100).show(2000);
+
+
+        $("#inputtext").keyup(function () {
+            var inputval = $(this).val().toLowerCase();
+            $(".card").each(function () {
+
+                $(this).toggle($(this).text().toLowerCase().indexOf(inputval) > -1)
+            });
+
+        });
+
+
+    </script>
+
+}

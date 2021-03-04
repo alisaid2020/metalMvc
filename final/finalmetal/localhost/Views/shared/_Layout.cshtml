@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>@ViewBag.title metal furniture</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/Content/css/styles.css" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Metal Furniture</a>
+            <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/Home">Home</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/Home/products">products</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a></li>
+                    @*<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a></li>*@
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/Home/contact">Contact</a></li>
+
+
+                    @if (Session["type"] == "Admin" && Session["userid"] != null)
+                    {
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/Home/AdminControl">AdminControl</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/Home/ProductAdmin">ProductAdmin</a></li>
+}
+                    @if (Session["userid"] != null)
+                    {
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/Home/logout">logout</a></li>}
+
+                    @if (Session["userid"] == null)
+                    {
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/Home/login">login</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/Home/register">register</a></li>}
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead bg-primary text-white text-center p-0">
+        @RenderBody()
+    </header>
+
+
+
+    <!-- Section  About -->
+
+    <section class="page-section bg-primary text-white mb-0" id="about">
+        <div class="container">
+            <br />
+            <br />
+            <!-- About Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- About Section Content-->
+            <div class="row">
+                <div class="col-lg-4 ml-auto">
+                    <p class="lead">رواد صناعه الاثاث المعدنى الرائد فى مجال صناعة الأثاث المعدنى والاثاث الخشبى المتعدد والاثاث المنزلى وكذلك الاثاث المكتبى . وما يميزنا هو دقه التصميم وجوده الاثاث المعدني هو وجود طاقم من افضل مصممي الاثاث المعدني     </p>
+                </div>
+                <div class="col-lg-4 mr-auto">
+                    <p class="lead"> انتشر الاثاث المعدني في العالم في السنوات الاخيرة لسد العجز في الاخشاب من ناحية والناحيه الاخري تفضيل البساطة على الثراء الزخرفي وتفضيل الخفيف والصحي على الثقيل الذي يصعب تنظيفه</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 ml-auto">
+                    <p class="lead">هذا النوع من الاثاث له ايضا اهميته وتاريخه، ويتلخص تاريخه في ايجاز في انه ظهر في الاربعينات من هذا القرن، فبعض الناس مال الى اقتناء حوامل الاضاءة الحديدية السوداء بدلا من الكريستال والبرونز او الخشبية وليس بالنسبة لاستخدام الاضاءة الكهربائية فقط بل عند استخدام الشموع كما في الكنائس ايضا.    </p>
+                </div>
+                <div class="col-lg-4 mr-auto">
+                    <p class="lead">ميزات الأثاث المعدني استخدام العناصر التعبيرية في تصميمة، ومع ان الزخارف الحديدية - الدوارة او المحورية والملوية - في تنغيماتها المختلفة هي بطبيعتها التكوينية ذات مفاهيم موسيقية ، الان ان توضيحها بعناصر اخرى مستفادة من الجو الموسيقي نفسه قد يكون هو معامل تعبيري رامز للموسيقى يربطها بالعمل الفني الوظيفي او يربط العمل الفني الاستعمالي بها ربطا قويا يساعد على تاكيد كل منها لمفهوم الاخر ويقوي اواصره</p>
+                </div>
+            </div>
+            <!-- About Section Button-->
+            <div class="text-center mt-4">
+
+            </div>
+        </div>
+    </section>
+    <!-- Section  About -->
+    <!-- Footer-->
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Location-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+
+                </div>
+                <!-- Footer Social Icons-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Around the Web</h4>
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://web.facebook.com/ali.harhera.1"><i class="fab fa-fw fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/ali-harhera-a6028314b"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="https://api.whatsapp.com/send?phone=+201285638994" method="get" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <!-- Footer About Text-->
+                <div class="col-lg-4">
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Copyright Section-->
+    <div class="copyright py-4 text-center text-white">
+        <div class="container"><small>Copyright © Your Website 2021</small></div>
+    </div>
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+    <div class="scroll-to-top d-lg-none position-fixed">
+        <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
+    </div>
+
+    <!-- Portfolio Modals-->
+    <!-- Portfolio Modal 1-->
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Contact form JS-->
+    <script src="~/Scripts/assets/mail/jqBootstrapValidation.js"></script>
+    <script src="~/Scripts/assets/mail/contact_me.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+    <!-- Core theme JS-->
+    <script src="~/Scripts/js/scripts.js"></script>
+
+    @RenderSection("scribts", required: false)
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "AdminControl";
+    if (Session["userid"] == null &&Session["type"]!="Admin")
+    {
+        Response.Redirect("~/Home/login");
+    }
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<dv class="container-fluid">
+    <h2>AdminControl</h2>
+
+    <a href="/Home/AddProduct" class="btn btn-danger">AddProduct</a>
+    <br />
+    <br />
+    <a href="/Home/ProductAdmin" class="btn btn-danger">ProductAdmin</a>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</dv>
+

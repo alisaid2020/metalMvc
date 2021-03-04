@@ -1,0 +1,90 @@
+﻿@model IEnumerable<finalmetal.Models.product>
+@{
+    if (Session["type"] != "Admin" && Session["userid"] == null)
+    {
+        Response.Redirect("~/Home/login");
+    }
+    ViewBag.Title = "ProductAdmin";
+}
+
+<style>
+   .card-body {
+    color:black;
+    background-color:aquamarine;
+    }
+    #products-container {
+        position: relative;
+        display: inline-block;
+        padding: 10px;
+        margin: 10px;
+        /*border: 1px solid black;*/
+        border-radius: 15px;
+    }
+
+    img {
+        width: 80px;
+        height: 180px;
+    }
+</style>
+<br />
+<br />
+<br />
+
+<div class="container-fluid p-5">
+
+
+
+    <h2>ProductAdmin</h2>
+    <br />
+    <div class="container-fluid col-8" id="inpsearch">
+        <div class="input-group md-form form-sm form-2 pl-0">
+            <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" id="inputtext">
+            <div class="input-group-append">
+                <span class="input-group-text red lighten-3" id="basic-text1">
+                    <i class="fas fa-search text-grey"
+                       aria-hidden="true"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div id="products-container">
+            <div class="card" style="width: 18rem; position:relative; display:inline-block;" id="ddd">
+                <img src="~/images/@item.Image1" class="card-img-top" alt="image info">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">price:@item.Price</p>
+                    <a href="/Home/Details/@item.Id" class="btn btn-primary">Details</a>
+                    <a href="/Home/delet/@item.Id" class="btn btn-danger" onclick="return confirm('Are you sure?');">Delet</a>
+                    <a href="/Home/Edit/@item.Id" class="btn btn-info">Edit</a>
+
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>
+@section scribts
+
+    {
+
+    <script>
+
+        $(".card").hide(100).show(2000);
+        $("#inpsearch").hide(100).show(2000);
+
+        $("#inputtext").keyup(function () {
+            var inputval = $(this).val().toLowerCase();
+            $(".card").each(function () {
+
+                $(this).toggle($(this).text().toLowerCase().indexOf(inputval) > -1)
+            });
+
+        });
+
+    </script>
+
+}

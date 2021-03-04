@@ -1,0 +1,94 @@
+﻿@model IEnumerable<finalmetal.Models.product>
+@{
+    ViewBag.Title = "products";
+}
+<br />
+<br />
+<br />
+<br />
+<style>
+    .card-body {
+        color: black;
+        background-color: aquamarine;
+    }
+    body {
+        background-color: #808080;
+    }
+
+    #imgcard {
+        height: 190px;
+    }
+
+    .card-body {
+        height: 150px;
+        background-color: aquamarine;
+    }
+
+    #products-container {
+        position: relative;
+        display: inline-block;
+        padding: 10px;
+        margin: 10px;
+        /*border: 1px solid black;*/
+        border-radius: 15px;
+    }
+
+    #inpsearch {
+        padding-top: 110px;
+    }
+</style>
+<div class="container-fluid col-8" id="inpsearch">
+    <div class="input-group md-form form-sm form-2 pl-0">
+        <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" id="inputtext">
+        <div class="input-group-append">
+            <span class="input-group-text red lighten-3" id="basic-text1">
+                <i class="fas fa-search text-grey"
+                   aria-hidden="true"></i>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="container-fluid mx-auto" style="width:600px">
+    <h2>products</h2>
+
+</div>
+@foreach (var item in Model)
+{
+    <div id="products-container">
+        <div class="card" style="width: 18rem; position:relative; display:inline-block;" id="ddd">
+            <img src="~/images/@item.Image1" class="card-img-top" alt="image info" id="imgcard">
+            <div class="card-body">
+                <h5 id="asas">name:@item.Name</h5>
+                <h6>price:@item.Price</h6>
+                <a href="/Home/Details/@item.Id" class="btn btn-primary bg-primary">Details</a>
+            </div>
+        </div>
+
+    </div>
+
+}
+@section scribts
+
+    {
+
+    <script>
+
+        $(".card").hide(100).show(2000);
+        $("#inpsearch").hide(100).show(2000);
+
+
+        $("#inputtext").keyup(function () {
+            var inputval = $(this).val().toLowerCase();
+            $(".card").each(function () {
+
+                $(this).toggle($(this).text().toLowerCase().indexOf(inputval) > -1)
+            });
+
+        });
+
+
+
+
+    </script>
+
+}

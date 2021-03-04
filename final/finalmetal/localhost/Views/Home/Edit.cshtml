@@ -1,0 +1,81 @@
+﻿        @model finalmetal.Models.product
+  @{
+      ViewBag.Title = "Edit";
+  }
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <div class="container-fluid">
+      <h2>Edit</h2>
+
+  </div>
+  <div class=" d-flex justify-content-center">
+
+
+      @using (Html.BeginForm("edit", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+      {
+          @Html.HiddenFor(model => model.Id);
+
+          <div class="form-group row">
+              @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "col-2" })
+              @Html.EditorFor(model => model.Name, additionalViewData: new { htmlAttributes = new { @class = "col-7 form-control" } })
+              @Html.ValidationMessageFor(ww => ww.Name, "", htmlAttributes: new { @class = "text-secondary" })
+          </div>
+          <br />
+          <div class="form-group row">
+              @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "col-2" })
+              @Html.EditorFor(model => model.Price, additionalViewData: new { htmlAttributes = new { @class = "col-7 form-control" } })
+              @Html.ValidationMessageFor(ww => ww.Price, "", htmlAttributes: new { @class = "text-secondary" })
+          </div>
+          <br />
+
+
+          <div class="input-group row">
+              <div>
+                    <label class="col-2">@Model.Image1</label>                
+              </div>
+          </div>
+
+          <div class="input-group row">
+              <div class="custom-file">
+                  @Html.LabelFor(model => model.Image1, htmlAttributes: new { @class = "col-2" })
+                  @Html.EditorFor(model => model.Image1, @Model.Image1, additionalViewData: new { htmlAttributes = new { @class = "form-control col-8", PlaceHolder = "Image3", @type = "file", @Name = "imag1" } })
+                  @Html.ValidationMessageFor(ww => ww.Image1, "", htmlAttributes: new { @class = "text-secondary" })
+              </div>
+          </div>
+          <br />
+          <div class="input-group row">
+              <div class="custom-file">
+                  @Html.LabelFor(model => model.Image2, htmlAttributes: new { @class = "col-2" })
+                  @Html.EditorFor(model => model.Image2, @Model.Image2, additionalViewData: new { htmlAttributes = new { @class = "form-control col-8", PlaceHolder = "Image3", @type = "file", @Name = "imag2" } })
+                  @Html.ValidationMessageFor(ww => ww.Image2, "", htmlAttributes: new { @class = "text-secondary" })
+              </div>
+          </div>
+          <br />
+          <div class="input-group row">
+              <div class="custom-file">
+                  @Html.LabelFor(model => model.Image3, htmlAttributes: new { @class = "col-2" })
+                  @Html.EditorFor(model => model.Image3, @Model.Image3, additionalViewData: new { htmlAttributes = new { @class = "form-control col-8", PlaceHolder = "Image3", @type = "file", @Name = "imag3" } })
+                  @Html.ValidationMessageFor(ww => ww.Image3, "", htmlAttributes: new { @class = "text-secondary" })
+              </div>
+          </div>
+          <br />
+          <button class="btn btn-success" type="submit" id="inputGroupFileAddon04">Edit</button>
+
+
+      }
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
+
+
+
+
